@@ -12,7 +12,7 @@ jobs:
         run: |
           pip install gptme
           sudo apt-get install gh
-          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
       - name: Run code review
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
