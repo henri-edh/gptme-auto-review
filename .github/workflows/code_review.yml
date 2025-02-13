@@ -15,7 +15,7 @@ jobs:
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
       - name: Run code review
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           ./review_pr.sh ${{ github.repository }} ${{ github.event.pull_request.number }}
 
